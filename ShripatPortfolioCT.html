@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shripad Pathak | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fbfbfb;
+        --surface: #ffffff;
+        --surface-strong: #f1f5fb;
+        --text: #121212;
+        --muted: #555b6e;
+        --accent: #2f66ff;
+        --accent-soft: rgba(47, 102, 255, 0.12);
+        --border: #e3e8f1;
+        --shadow: 0 24px 60px rgba(19, 25, 45, 0.08);
+        --radius: 24px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: grid;
+        gap: 4rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(251, 251, 251, 0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: -0.04em;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        color: var(--muted);
+        transition: color 0.25s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--text);
+      }
+
+      .hero {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .hero-copy {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+        color: var(--accent);
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 4vw, 4.5rem);
+        line-height: 1.02;
+        margin: 0;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--muted);
+        max-width: 44rem;
+        line-height: 1.75;
+      }
+
+      .button-primary {
+        display: inline-block;
+        border: none;
+        border-radius: 999px;
+        padding: 0.95rem 1.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 18px 40px rgba(47, 102, 255, 0.18);
+        transition: transform 0.25s ease;
+      }
+
+      .button-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 320px;
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(47, 102, 255, 0.14), transparent 68%), #ffffff;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+      }
+
+      .hero-card {
+        width: 100%;
+        max-width: 320px;
+        background: var(--surface);
+        padding: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 22px 50px rgba(19, 25, 45, 0.08);
+      }
+
+      section {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: 1.75rem;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .about-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+      }
+
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .skill-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: transform 0.25s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(47, 102, 255, 0.3);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        background: var(--surface);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 2rem;
+        transition: transform 0.25s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .project-link {
+        display: inline-flex;
+        padding: 0.95rem 1.3rem;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 999px;
+        margin-top: 1.5rem;
+      }
+
+      .contact-details {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .contact-item span {
+        font-weight: 600;
+        display: block;
+      }
+
+      footer {
+        padding: 4rem 1.5rem 2rem;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      @media (max-width: 940px) {
+        .hero, .about, .projects-grid, .skill-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="nav-container">
+          <a class="brand" href="#home">Shripad Pathak</a>
+          <nav>
+            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section id="home" class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Software Engineering Student | Batch SE2 S22</span>
+            <h1 class="hero-title">Hi, I’m Shripad Pathak</h1>
+            <p class="hero-subtitle">
+              Engineering student at MITAOE with a passion for practical solutions, software development, and building refined digital experiences.
+            </p>
+            <a class="button-primary" href="#projects">View My Projects</a>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-card">
+              <h3 style="margin-top:0">Quick Info</h3>
+              <p style="color:var(--muted); line-height:1.6; font-size: 0.9rem;">
+                <strong>PRN:</strong> 202501100150<br>
+                <strong>Batch:</strong> SE2 S22<br>
+                I am focused on creating dependable software solutions with thoughtful logic.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="about">
+          <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Education and enthusiasm.</p>
+          </div>
+          <div class="about">
+            <p style="color:var(--muted); line-height:1.75">
+              I am an engineering student at MIT Academy of Engineering (MITAOE). My focus is on creating dependable solutions with clear design and thoughtful logic. I approach every project with curiosity and a drive to learn.
+            </p>
+            <div class="about-card">
+              <h3 style="margin-top:0">Current Profile</h3>
+              <p style="font-size:0.9rem; color:var(--muted)">Software Engineering Student at MITAOE</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">Core technologies and programming skills.</p>
+          </div>
+          <div class="skill-grid">
+            <div class="skill-card"><h4>HTML</h4><p style="color:var(--muted)">Web structure</p></div>
+            <div class="skill-card"><h4>CSS</h4><p style="color:var(--muted)">Visual design</p></div>
+            <div class="skill-card"><h4>Python</h4><p style="color:var(--muted)">Automation & Logic</p></div>
+            <div class="skill-card"><h4>C++</h4><p style="color:var(--muted)">Performance</p></div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <div class="section-header">
+            <h2 class="section-title">Projects</h2>
+          </div>
+          <div class="projects-grid">
+            <div class="project-card">
+              <h3>Teacher Avability And Doubt Booking Portal</h3>
+              <p style="color:var(--muted)">Linux-based task management tool.</p>
+              <a class="project-link" href="https://github.com/SHriPaD7777/Teacher-avability-and-doubt-booking-portal.git" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+              <h3>Watering System</h3>
+              <p style="color:var(--muted)">Automatic soil moisture prototype.</p>
+              <a class="project-link" href="#" target="_blank">View Prototype</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Let's connect.</p>
+          </div>
+          <div class="contact-card" style="max-width: 500px; margin: 0 auto; border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; background: #fff; box-shadow: var(--shadow);">
+            <h3 style="margin-top:0">Get in Touch</h3>
+            <ul class="contact-details">
+              <li class="contact-item"><span>Email</span><p>shripadrpathak@gmail.com</p></li>
+              <li class="contact-item"><span>Phone</span><p>+91 7448240783</p></li>
+              <li class="contact-item"><span>PRN</span><p>202501100150</p></li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        &copy; <span id="year"></span> Shripad Pathak. All rights reserved.
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
